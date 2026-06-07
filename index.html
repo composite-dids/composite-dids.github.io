@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>composite-dids · Projects</title>
+    <style>
+      :root {
+        --bg: #0b1020;
+        --card: #161d33;
+        --border: #2a3556;
+        --text: #e8ecf5;
+        --muted: #9aa4c0;
+        --accent: #6d8bff;
+        --accent2: #9d6bff;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        color: var(--text);
+        background: radial-gradient(900px 600px at 15% -10%, #1b2550 0%, transparent 50%),
+          radial-gradient(800px 500px at 110% 10%, #2a1b4d 0%, transparent 45%),
+          var(--bg);
+      }
+      .wrap { width: 100%; max-width: 600px; padding: 40px 24px; }
+      header { text-align: center; margin-bottom: 32px; }
+      h1 {
+        font-size: 34px;
+        margin: 0 0 6px;
+        letter-spacing: -0.5px;
+        background: linear-gradient(90deg, #fff, #b9c6ff);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      header p { color: var(--muted); margin: 0; }
+      a.card {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin: 14px 0;
+        padding: 18px 22px;
+        border-radius: 14px;
+        background: var(--card);
+        border: 1px solid var(--border);
+        color: var(--text);
+        text-decoration: none;
+        transition: transform 0.15s, border-color 0.15s;
+      }
+      a.card:hover { border-color: var(--accent); transform: translateY(-2px); }
+      a.card.disabled { opacity: 0.45; pointer-events: none; }
+      .icon { font-size: 26px; }
+      .label { font-size: 17px; font-weight: 600; }
+      .desc { color: var(--muted); font-size: 13px; margin-top: 2px; }
+      .arrow { margin-left: auto; color: var(--muted); }
+      footer { text-align: center; color: var(--muted); font-size: 12px; margin-top: 28px; }
+      footer a { color: var(--accent); }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <h1>composite-dids</h1>
+        <p>Project index</p>
+      </header>
+
+      <!-- Working project: vote-app's Pages site -->
+      <a class="card" href="/vote-app/">
+        <span class="icon">🗳️</span>
+        <span>
+          <div class="label">Vote App</div>
+          <div class="desc">Decentralized yes/no voting on Sepolia</div>
+        </span>
+        <span class="arrow">→</span>
+      </a>
+
+      <!-- Second project: rename the href to /<repo>/ once its Pages is live -->
+      <a class="card disabled" href="#">
+        <span class="icon">📦</span>
+        <span>
+          <div class="label">Project 2</div>
+          <div class="desc">Coming soon</div>
+        </span>
+        <span class="arrow">→</span>
+      </a>
+
+      <!-- Third project: placeholder -->
+      <a class="card disabled" href="#">
+        <span class="icon">⬜</span>
+        <span>
+          <div class="label">Project 3</div>
+          <div class="desc">Coming soon</div>
+        </span>
+        <span class="arrow">→</span>
+      </a>
+
+      <footer>
+        <a href="https://github.com/composite-dids">github.com/composite-dids</a>
+      </footer>
+    </div>
+  </body>
+</html>
