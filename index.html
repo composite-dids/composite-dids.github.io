@@ -6,101 +6,232 @@
     <title>composite-dids · Projects</title>
     <style>
       :root {
-        --bg: #0b1020;
-        --card: #161d33;
-        --border: #2a3556;
-        --text: #e8ecf5;
-        --muted: #9aa4c0;
-        --accent: #6d8bff;
-        --accent2: #9d6bff;
+        --bg: #ffffff;
+        --navy: #0f2a4d;
+        --text: #1f2933;
+        --muted: #6b7280;
+        --border: #e5e7eb;
+        --accent: #1d4ed8;
+        --hover: #f7f9fc;
+        --maxw: 760px;
       }
       * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
       body {
         margin: 0;
-        min-height: 100vh;
-        display: grid;
-        place-items: center;
-        font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
         color: var(--text);
-        background: radial-gradient(900px 600px at 15% -10%, #1b2550 0%, transparent 50%),
-          radial-gradient(800px 500px at 110% 10%, #2a1b4d 0%, transparent 45%),
-          var(--bg);
+        background: var(--bg);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+          Arial, sans-serif;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
       }
-      .wrap { width: 100%; max-width: 600px; padding: 40px 24px; }
-      header { text-align: center; margin-bottom: 32px; }
-      h1 {
-        font-size: 34px;
-        margin: 0 0 6px;
-        letter-spacing: -0.5px;
-        background: linear-gradient(90deg, #fff, #b9c6ff);
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
+      a { color: var(--accent); text-decoration: none; }
+      a:hover { text-decoration: underline; }
+
+      /* ---------- Top navigation ---------- */
+      .topbar {
+        border-bottom: 1px solid var(--border);
+        background: #fff;
+        position: sticky;
+        top: 0;
+        z-index: 10;
       }
-      header p { color: var(--muted); margin: 0; }
-      a.card {
+      .topbar-inner {
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: 16px 24px;
         display: flex;
         align-items: center;
-        gap: 14px;
-        margin: 14px 0;
-        padding: 18px 22px;
-        border-radius: 14px;
-        background: var(--card);
-        border: 1px solid var(--border);
-        color: var(--text);
-        text-decoration: none;
-        transition: transform 0.15s, border-color 0.15s;
+        justify-content: space-between;
       }
-      a.card:hover { border-color: var(--accent); transform: translateY(-2px); }
-      a.card.disabled { opacity: 0.45; pointer-events: none; }
-      .icon { font-size: 26px; }
-      .label { font-size: 17px; font-weight: 600; }
-      .desc { color: var(--muted); font-size: 13px; margin-top: 2px; }
-      .arrow { margin-left: auto; color: var(--muted); }
-      footer { text-align: center; color: var(--muted); font-size: 12px; margin-top: 28px; }
-      footer a { color: var(--accent); }
+      .brand { display: flex; align-items: center; gap: 12px; }
+      .brand .mark {
+        width: 34px;
+        height: 34px;
+        border-radius: 7px;
+        background: var(--navy);
+        color: #fff;
+        font-weight: 700;
+        font-size: 15px;
+        display: grid;
+        place-items: center;
+        letter-spacing: -0.5px;
+      }
+      .brand .word {
+        font-weight: 700;
+        color: var(--navy);
+        font-size: 17px;
+        letter-spacing: -0.2px;
+      }
+      .nav { display: flex; gap: 22px; font-size: 14px; }
+      .nav a { color: var(--text); }
+
+      /* ---------- Hero ---------- */
+      .hero {
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: 64px 24px 28px;
+        border-bottom: 1px solid var(--border);
+      }
+      .eyebrow {
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--accent);
+        margin: 0 0 12px;
+      }
+      .hero h1 {
+        font-size: 38px;
+        line-height: 1.15;
+        margin: 0 0 14px;
+        color: var(--navy);
+        letter-spacing: -1px;
+      }
+      .hero p {
+        margin: 0;
+        font-size: 18px;
+        color: var(--muted);
+        max-width: 620px;
+      }
+
+      /* ---------- Projects ---------- */
+      main { max-width: var(--maxw); margin: 0 auto; padding: 36px 24px 80px; }
+      .section-label {
+        text-transform: uppercase;
+        letter-spacing: 1.2px;
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--muted);
+        margin: 0 0 8px;
+      }
+      .projects { border-top: 1px solid var(--border); }
+      .project {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        padding: 22px 12px;
+        border-bottom: 1px solid var(--border);
+        color: inherit;
+        transition: background 0.12s;
+      }
+      .project:hover { background: var(--hover); text-decoration: none; }
+      .project .num {
+        font-variant-numeric: tabular-nums;
+        color: var(--muted);
+        font-size: 14px;
+        width: 28px;
+        flex: none;
+      }
+      .project .body { flex: 1; }
+      .project .title {
+        font-size: 19px;
+        font-weight: 600;
+        color: var(--navy);
+        margin: 0;
+      }
+      .project .desc { color: var(--muted); font-size: 14.5px; margin: 2px 0 0; }
+      .project .arrow { color: var(--accent); font-size: 20px; flex: none; }
+      .project.disabled { pointer-events: none; }
+      .project.disabled .title { color: var(--muted); }
+      .project.disabled .arrow { display: none; }
+      .tag {
+        display: inline-block;
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--muted);
+        background: #f1f3f7;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 2px 9px;
+        margin-left: 8px;
+        vertical-align: middle;
+      }
+
+      footer {
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: 24px;
+        border-top: 1px solid var(--border);
+        color: var(--muted);
+        font-size: 13px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      @media (max-width: 540px) {
+        .hero h1 { font-size: 30px; }
+        .nav { gap: 16px; }
+      }
     </style>
   </head>
   <body>
-    <div class="wrap">
-      <header>
-        <h1>composite-dids</h1>
-        <p>Project index</p>
-      </header>
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="brand">
+          <span class="mark">cd</span>
+          <span class="word">composite-dids</span>
+        </div>
+        <nav class="nav">
+          <a href="#projects">Projects</a>
+          <a href="https://github.com/composite-dids">GitHub</a>
+        </nav>
+      </div>
+    </header>
 
-      <!-- First project: mechanism design evaluation UI -->
-      <a class="card" href="/Evaluation_UI/">
-        <span class="icon">⚖️</span>
-        <span>
-          <div class="label">Mechanism Design</div>
-          <div class="desc">Evaluation UI</div>
-        </span>
-        <span class="arrow">→</span>
-      </a>
+    <section class="hero">
+      <p class="eyebrow">Research &amp; Demos</p>
+      <h1>composite-dids</h1>
+      <p>
+        A collection of mechanism-design research tools and on-chain
+        demonstrations. Select a project below to explore.
+      </p>
+    </section>
 
-      <!-- Second project: vote-app's Pages site -->
-      <a class="card" href="/vote-app/">
-        <span class="icon">🗳️</span>
-        <span>
-          <div class="label">Vote App</div>
-          <div class="desc">Decentralized yes/no voting on Sepolia</div>
-        </span>
-        <span class="arrow">→</span>
-      </a>
+    <main id="projects">
+      <p class="section-label">Projects</p>
+      <div class="projects">
+        <!-- First project: mechanism design evaluation UI -->
+        <a class="project" href="/Evaluation_UI/">
+          <span class="num">01</span>
+          <span class="body">
+            <p class="title">Mechanism Design</p>
+            <p class="desc">Evaluation UI for mechanism-design experiments</p>
+          </span>
+          <span class="arrow">→</span>
+        </a>
 
-      <!-- Third project: placeholder -->
-      <a class="card disabled" href="#">
-        <span class="icon">⬜</span>
-        <span>
-          <div class="label">Project 3</div>
-          <div class="desc">Coming soon</div>
-        </span>
-        <span class="arrow">→</span>
-      </a>
+        <!-- Second project: vote-app's Pages site -->
+        <a class="project" href="/vote-app/">
+          <span class="num">02</span>
+          <span class="body">
+            <p class="title">Vote App</p>
+            <p class="desc">Decentralized yes/no voting on Sepolia (MetaMask + smart contracts)</p>
+          </span>
+          <span class="arrow">→</span>
+        </a>
 
-      <footer>
-        <a href="https://github.com/composite-dids">github.com/composite-dids</a>
-      </footer>
-    </div>
+        <!-- Third project: placeholder. To activate: remove "disabled",
+             set href="/<repo>/", and update the title/description. -->
+        <a class="project disabled" href="#">
+          <span class="num">03</span>
+          <span class="body">
+            <p class="title">Project 3 <span class="tag">Coming soon</span></p>
+            <p class="desc">To be announced</p>
+          </span>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+    </main>
+
+    <footer>
+      <span>© composite-dids</span>
+      <a href="https://github.com/composite-dids">github.com/composite-dids</a>
+    </footer>
   </body>
 </html>
